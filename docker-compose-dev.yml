@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  prompt-service:
+    build: .
+    container_name: prompt-service
+    ports:
+      - "8008:8002"
+    env_file: .env
+    volumes:
+      - ./:/code
+    # environment:
+    #   VECTORIZER_SERVICE_URL: http://vectorizer:8001
+    #   ELASTICSEARCH_HOST: http://elasticsearch:9200
+    #   TEXT_DATA_SERVICE_URL: http://text-data-service:8002
+    #   RABBITMQ_URL: amqp://rabbitmq:5672
+    # restart: unless-stopped
